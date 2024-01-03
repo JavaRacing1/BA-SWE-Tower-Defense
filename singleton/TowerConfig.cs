@@ -49,11 +49,11 @@ public partial class TowerConfig : Node
 
 		using FileAccess towerFile = FileAccess.Open(_filePath, FileAccess.ModeFlags.Read);
 		if (towerFile == null)
-        {
-            Error fileError = FileAccess.GetOpenError();
-            GD.PrintErr($"File Error: {FileAccess.GetOpenError()}");
-            throw new System.IO.FileLoadException($"File load exception: {fileError}");
-        }
+		{
+			Error fileError = FileAccess.GetOpenError();
+			GD.PrintErr($"File Error: {FileAccess.GetOpenError()}");
+			throw new System.IO.FileLoadException($"File load exception: {fileError}");
+		}
 
 		StringBuilder fileStringBuilder = new StringBuilder();
 		while (towerFile.GetPosition() < towerFile.GetLength())
@@ -66,18 +66,18 @@ public partial class TowerConfig : Node
 		if (parseResult != Error.Ok)
 		{
 			string errorMsg = $"JSON Parse Error: {json.GetErrorMessage()} in {fileStringBuilder} at line {json.GetErrorLine()}";
-            GD.Print(errorMsg);
-            throw new JsonException(errorMsg);
+			GD.Print(errorMsg);
+			throw new JsonException(errorMsg);
 		}
 
 		var towerDict = new Godot.Collections.Dictionary<string, Variant>((Dictionary)json.Data);
-		Array<Godot.Collections.Dictionary<string, Variant>> towers = (Array<Godot.Collections.Dictionary<string, Variant>>) towerDict["towers"];
+		Array<Godot.Collections.Dictionary<string, Variant>> towers = (Array<Godot.Collections.Dictionary<string, Variant>>)towerDict["towers"];
 
 		foreach (Godot.Collections.Dictionary<string, Variant> tower in towers)
 		{
-			string towerName = (string) tower["name"];
+			string towerName = (string)tower["name"];
 			var towerSettings = new TowerSettings(tower);
 			_loadedTowers.Add(towerName, towerSettings);
 		}
-	}	
+	}
 }

@@ -11,7 +11,7 @@ public partial class ConfirmationPopup : Window
 		Title = boxTitle;
 
 		//angezeigten Text festlegen
-		Label textLabel = GetNode<Label>("TextLabel");
+		Label textLabel = GetNode<Label>("TextureRect/TextLabel");
 		textLabel.Text = message;
 	}
 

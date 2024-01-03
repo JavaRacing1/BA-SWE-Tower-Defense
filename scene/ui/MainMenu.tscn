@@ -1,74 +1,170 @@
-[gd_scene load_steps=4 format=3 uid="uid://tjij4c0kv4o6"]
+[gd_scene load_steps=6 format=3 uid="uid://bun2c41yhaett"]
 
-[ext_resource type="Script" path="res://script/ui/MainMenu.cs" id="1_b0cnx"]
-[ext_resource type="Texture2D" uid="uid://d3y3aew5mpsuv" path="res://assets/texture/buttons/TurnOffButton.png" id="2_mcli0"]
+[ext_resource type="Script" path="res://script/ui/MainMenu.cs" id="1_50fbc"]
+[ext_resource type="Texture2D" uid="uid://11c8mm6e5lsy" path="res://assets/background/PixleCastle.png" id="1_lhq8s"]
+[ext_resource type="Texture2D" uid="uid://b65ebyk86d3k" path="res://assets/button/Stonebutton.png" id="2_4qbh7"]
+[ext_resource type="FontFile" uid="uid://vrg0he4meveg" path="res://assets/font/HyliaMidevilFont.otf" id="3_2mpoe"]
+[ext_resource type="Texture2D" uid="uid://ceh7jn57xacd1" path="res://assets/button/StonebuttonPressed.png" id="3_757rl"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uh7ax"]
-font_size = 32
-font_color = Color(0, 0, 0, 1)
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_50fbc")
 
-[node name="MainMenu" type="Node"]
-script = ExtResource("1_b0cnx")
-metadata/_edit_vertical_guides_ = [-17.0]
-metadata/_edit_horizontal_guides_ = [369.0, 302.0]
+[node name="BackgroundMainMenu" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lhq8s")
+expand_mode = 2
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="."]
+[node name="MenuMargCont" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.058
-offset_bottom = -18.76
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonsVBoxCont" type="VBoxContainer" parent="MenuMargCont"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 1
+
+[node name="ButtonSelectLevel" type="TextureButton" parent="MenuMargCont/ButtonsVBoxCont"]
+custom_minimum_size = Vector2(450, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_4qbh7")
+texture_pressed = ExtResource("3_757rl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LabelSelectButton" type="Label" parent="MenuMargCont/ButtonsVBoxCont/ButtonSelectLevel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.313726, 0.858824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_2mpoe")
+theme_override_font_sizes/font_size = 35
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonOptions" type="TextureButton" parent="MenuMargCont/ButtonsVBoxCont"]
+custom_minimum_size = Vector2(450, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_4qbh7")
+texture_pressed = ExtResource("3_757rl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LabelOptionButton" type="Label" parent="MenuMargCont/ButtonsVBoxCont/ButtonOptions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.313726, 0.858824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_2mpoe")
+theme_override_font_sizes/font_size = 35
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonAboutProject" type="TextureButton" parent="MenuMargCont/ButtonsVBoxCont"]
+custom_minimum_size = Vector2(450, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_4qbh7")
+texture_pressed = ExtResource("3_757rl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LabelProjectButton" type="Label" parent="MenuMargCont/ButtonsVBoxCont/ButtonAboutProject"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.313726, 0.858824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_2mpoe")
+theme_override_font_sizes/font_size = 35
+text = "ABOUT THIS GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpaceButton" type="TextureButton" parent="MenuMargCont/ButtonsVBoxCont"]
+custom_minimum_size = Vector2(450, 165)
+layout_mode = 2
+button_mask = 0
+
+[node name="ButtonExit" type="TextureButton" parent="MenuMargCont/ButtonsVBoxCont"]
+custom_minimum_size = Vector2(450, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_4qbh7")
+texture_pressed = ExtResource("3_757rl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LabelExitButton" type="Label" parent="MenuMargCont/ButtonsVBoxCont/ButtonExit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.313726, 0.858824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_2mpoe")
+theme_override_font_sizes/font_size = 35
+text = "CLOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelGameTitle" type="Label" parent="MenuMargCont"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_2mpoe")
+theme_override_font_sizes/font_size = 50
 text = "BA TOWER DEFENSE GAME"
-label_settings = SubResource("LabelSettings_uh7ax")
 horizontal_alignment = 1
 
-[node name="OptionButton" type="Button" parent="."]
-anchors_preset = -1
-anchor_left = 0.064
-anchor_top = 0.421
-anchor_right = 0.201
-anchor_bottom = 0.511
-offset_left = 0.0799942
-offset_top = -3.12003
-offset_right = 4.72
-offset_bottom = 2.07999
-mouse_default_cursor_shape = 2
-text = "EINSTELLUNGEN"
-metadata/_edit_group_ = true
-
-[node name="LevelSelectionButton" type="Button" parent="."]
-anchors_preset = -1
-anchor_left = 0.239
-anchor_top = 0.418
-anchor_right = 0.38
-anchor_bottom = 0.511
-offset_left = -5.92001
-offset_top = 0.039978
-offset_right = -6.40002
-offset_bottom = 3.07999
-mouse_default_cursor_shape = 2
-text = "LEVELAUSWAHL"
-metadata/_edit_group_ = true
-
-[node name="ExitButton" type="Button" parent="."]
-anchors_preset = -1
-anchor_left = 0.955
-anchor_right = 1.0
-anchor_bottom = 0.081
-offset_left = 0.599976
-offset_right = 1.0
-offset_bottom = -0.32
-mouse_default_cursor_shape = 2
-action_mode = 0
-icon = ExtResource("2_mcli0")
-
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 97.0
-offset_top = 94.0
-offset_right = 298.0
-offset_bottom = 231.0
-
-[connection signal="pressed" from="OptionButton" to="." method="OnSettingsButtonPressed"]
-[connection signal="pressed" from="LevelSelectionButton" to="." method="OnLevelSelectionButtonPressed"]
-[connection signal="pressed" from="ExitButton" to="." method="OnExitButtonPressed"]
+[connection signal="pressed" from="MenuMargCont/ButtonsVBoxCont/ButtonSelectLevel" to="." method="OnLevelSelectionButtonPressed"]
+[connection signal="pressed" from="MenuMargCont/ButtonsVBoxCont/ButtonOptions" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="MenuMargCont/ButtonsVBoxCont/ButtonExit" to="." method="OnExitButtonPressed"]

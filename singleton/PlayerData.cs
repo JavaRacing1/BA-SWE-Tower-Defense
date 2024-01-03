@@ -1,28 +1,36 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Linq;
 using System.Text.Json;
 
 public partial class PlayerData : Node
 {
-	private int _volume = 100;
+    private int _volume = 100;
     private Array<int> _completedLevels = new();
-    private Array<string> _unlockedTowers = new();
+    private Array<string> _unlockedTowers = new(){
+        "knight",
+        "spearman",
+        "wall",
+        "goldmine",
+        "archer",
+        "fire_trap"
+    };
 
     /// <summary>
     /// The volume set by the player
     /// </summary>
-	public int Volume 
-	{
-		get
-		{
-			return _volume;
-		}
-		set
-		{
-			_volume = Math.Clamp(value, 0, 100);
-		}
-	}
+    public int Volume
+    {
+        get
+        {
+            return _volume;
+        }
+        set
+        {
+            _volume = Math.Clamp(value, 0, 100);
+        }
+    }
 
     /// <summary>
     /// An array containing the numbers of all completed levels
@@ -52,7 +60,7 @@ public partial class PlayerData : Node
         {
             Save();
         }
-        else 
+        else
         {
             Load();
         }
@@ -82,7 +90,7 @@ public partial class PlayerData : Node
     /// <exception cref="System.IO.FileLoadException">When the data file could not be accessed</exception>
     /// <exception cref="JsonException">When the data file contains invalid JSON</exception>
 	public void Load()
-	{
+    {
         if (!FileAccess.FileExists("user://player.dat"))
         {
             return;
@@ -107,17 +115,26 @@ public partial class PlayerData : Node
         }
 
         var dataDict = new Dictionary<string, Variant>((Dictionary)json.Data);
-        _volume = (int) dataDict["Volume"];
-        _completedLevels = (Array<int>) dataDict["CompletedLevels"];
-        _unlockedTowers = (Array<string>) dataDict["UnlockedTowers"];
-	}
+
+        _volume = (int)dataDict["Volume"];
+        _completedLevels = (Array<int>)dataDict["CompletedLevels"];
+
+        Array<string> savedUnlocks = (Array<string>)dataDict["UnlockedTowers"];
+        foreach (string unlockedTower in savedUnlocks)
+        {
+            if (!_unlockedTowers.Contains(unlockedTower))
+            {
+                _unlockedTowers.Add(unlockedTower);
+            }
+        }
+    }
 
     /// <summary>
     /// Saves the player data to a local data file
     /// </summary>
     /// <exception cref="System.IO.FileLoadException">When the data file could not be accessed</exception>()
 	public void Save()
-	{
+    {
         var dataDict = new Dictionary<string, Variant>()
         {
             {"Volume", _volume},
@@ -134,5 +151,5 @@ public partial class PlayerData : Node
             throw new System.IO.FileLoadException($"File load exception: {fileError}");
         }
         saveFile.StoreLine(jsonData);
-	}
+    }
 }

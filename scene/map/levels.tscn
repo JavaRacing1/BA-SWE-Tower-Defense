@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bs64ks8av4fum"]
+
+[node name="Level1" type="Node2D"]
+process_mode = 1
+editor_description = "Hier wird über \"Process\" eingestellt, wie sich das Level (Map) verhalten soll, wenn das Pausemenü auf ist. \"Inherit\" übernimmt die Eigenschaften des Elternknotens von Process. \"Pauseble\" pausiert die Szene Levle1, wenn das Pausemenü geöffnet wird"

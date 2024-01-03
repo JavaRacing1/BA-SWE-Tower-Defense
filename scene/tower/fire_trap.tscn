@@ -1,0 +1,101 @@
+[gd_scene load_steps=20 format=3 uid="uid://bcgr3fjxgr54n"]
+
+[ext_resource type="Script" path="res://script/tower/FireTrap.cs" id="1_ivqat"]
+[ext_resource type="Texture2D" uid="uid://cqf3su76jgetf" path="res://assets/texture/tower/animation/fire_trap/Idle1.png" id="2_r76w6"]
+[ext_resource type="Texture2D" uid="uid://d31qln40djgb1" path="res://assets/texture/tower/animation/fire_trap/Idle2.png" id="3_uxiqe"]
+[ext_resource type="Texture2D" uid="uid://hvyx8mbrtx8j" path="res://assets/texture/tower/animation/fire_trap/Idle3.png" id="4_ex6w3"]
+[ext_resource type="Texture2D" uid="uid://duy0elafr6e34" path="res://assets/texture/tower/animation/fire_trap/Idle4.png" id="5_8tgho"]
+[ext_resource type="Texture2D" uid="uid://bprwyku6sj28c" path="res://assets/texture/tower/animation/fire_trap/Idle5.png" id="6_pu5ng"]
+[ext_resource type="Texture2D" uid="uid://ddqrqsc686h18" path="res://assets/texture/tower/animation/fire_trap/Idle6.png" id="7_h2tta"]
+[ext_resource type="Texture2D" uid="uid://bd7m43kqcv3hf" path="res://assets/texture/tower/animation/fire_trap/Idle7.png" id="8_gfxlj"]
+[ext_resource type="Texture2D" uid="uid://dgrl4q0tfc6qa" path="res://assets/texture/tower/animation/fire_trap/Idle8.png" id="9_3ajkc"]
+[ext_resource type="Texture2D" uid="uid://cl6wt1k46rcwp" path="res://assets/texture/tower/animation/fire_trap/Idle9.png" id="10_5gxu5"]
+[ext_resource type="Texture2D" uid="uid://cofk3pttu0u1l" path="res://assets/texture/tower/animation/fire_trap/Idle10.png" id="11_lmobl"]
+[ext_resource type="Texture2D" uid="uid://bw4kxba88nrkw" path="res://assets/texture/tower/animation/fire_trap/Idle11.png" id="12_1thss"]
+[ext_resource type="Texture2D" uid="uid://b4d4ongf22xgs" path="res://assets/texture/tower/animation/fire_trap/Idle12.png" id="13_as4y2"]
+[ext_resource type="Texture2D" uid="uid://07cyk2n8idmi" path="res://assets/texture/tower/animation/fire_trap/Idle13.png" id="14_v8nel"]
+[ext_resource type="Texture2D" uid="uid://ctb5j8o4e20ch" path="res://assets/texture/tower/animation/fire_trap/Idle14.png" id="15_v3qia"]
+[ext_resource type="Texture2D" uid="uid://20gbdegf7aqm" path="res://assets/texture/tower/animation/fire_trap/Idle15.png" id="16_nyrbq"]
+[ext_resource type="Texture2D" uid="uid://c24qeah2y5tft" path="res://assets/texture/tower/animation/fire_trap/Idle16.png" id="17_1377g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5o0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r76w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uxiqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ex6w3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8tgho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pu5ng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h2tta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gfxlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3ajkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5gxu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lmobl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1thss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_as4y2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v8nel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_v3qia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nyrbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1377g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5syy7"]
+size = Vector2(100, 120)
+
+[node name="FireTrapDefender" type="Node2D"]
+script = ExtResource("1_ivqat")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, 60)
+sprite_frames = SubResource("SpriteFrames_k5o0w")
+animation = &"idle"
+frame = 1
+frame_progress = 0.681268
+
+[node name="ActionTimer" type="Timer" parent="."]
+
+[node name="AnimationTimer" type="Timer" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="AttackBox" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(50, 60)
+shape = SubResource("RectangleShape2D_5syy7")
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]

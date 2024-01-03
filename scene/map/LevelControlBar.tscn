@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://cph6w2yafda7f"]
+
+[ext_resource type="Texture2D" uid="uid://ct4pl4cxo45ho" path="res://assets/texture/map/LevelControlBar.png" id="1_cnujt"]
+[ext_resource type="Script" path="res://script/map/LevelControlBar.cs" id="1_s5i7c"]
+[ext_resource type="Theme" uid="uid://bmdbvi544mbu2" path="res://scene/map/LevelControlBarTheme.tres" id="2_0yxdt"]
+[ext_resource type="Texture2D" uid="uid://bb77l2iirrjq1" path="res://assets/texture/buttons/PlayButton.png" id="2_kabve"]
+[ext_resource type="Texture2D" uid="uid://cqkc88ch7ypg3" path="res://assets/texture/buttons/PauseButton.png" id="3_upghf"]
+[ext_resource type="Texture2D" uid="uid://b431exq11y5d3" path="res://assets/texture/map/MoneyControlBar.png" id="5_2grcu"]
+
+[node name="LevelControlBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s5i7c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1080.0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_cnujt")
+
+[node name="ControlBar" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 1080.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlBar"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="CenterContainer" parent="ControlBar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlBar/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="ControlBar/VBoxContainer/ButtonContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_0yxdt")
+icon = ExtResource("2_kabve")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PauseButton" type="Button" parent="ControlBar/VBoxContainer/ButtonContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_0yxdt")
+icon = ExtResource("3_upghf")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MoneyContainer" type="MarginContainer" parent="ControlBar/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="ControlBar/VBoxContainer/MoneyContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlBar/VBoxContainer/MoneyContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="MoneyIcon" type="TextureRect" parent="ControlBar/VBoxContainer/MoneyContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_2grcu")
+expand_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="ControlBar/VBoxContainer/MoneyContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "0
+"
+
+[node name="TowerContainer" type="MarginContainer" parent="ControlBar/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 34
+theme_override_constants/margin_right = 20
+
+[node name="TowerItemContainer" type="VBoxContainer" parent="ControlBar/VBoxContainer/TowerContainer"]
+custom_minimum_size = Vector2(160, 472)
+layout_mode = 2
+theme_override_constants/separation = 72
+
+[connection signal="pressed" from="ControlBar/VBoxContainer/ButtonContainer/HBoxContainer/StartButton" to="." method="OnStartButtonPressed"]
+[connection signal="pressed" from="ControlBar/VBoxContainer/ButtonContainer/HBoxContainer/PauseButton" to="." method="OnPauseButtonPressed"]

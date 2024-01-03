@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://cmxlsm31tvul4"]
+
+[ext_resource type="Script" path="res://script/enemy/PyroEnemy/FireballProjectile.cs" id="1_85je2"]
+[ext_resource type="Texture2D" uid="uid://36musbx3bwin" path="res://assets/Enemies/PyroEnemy/Yellow Effect Bullet Impact Explosion 32x32.png" id="2_g8s2q"]
+[ext_resource type="Texture2D" uid="uid://dyga7pcmbkoio" path="res://assets/Enemies/PyroEnemy/All_Fire_Bullet_Pixel_16x16.png" id="3_wr2hd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_847oa"]
+atlas = ExtResource("2_g8s2q")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slgg2"]
+atlas = ExtResource("2_g8s2q")
+region = Rect2(224, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve2w1"]
+atlas = ExtResource("2_g8s2q")
+region = Rect2(256, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj2jf"]
+atlas = ExtResource("2_g8s2q")
+region = Rect2(288, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td7qi"]
+atlas = ExtResource("3_wr2hd")
+region = Rect2(288, 208, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jqh1"]
+atlas = ExtResource("3_wr2hd")
+region = Rect2(256, 208, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5kw0"]
+atlas = ExtResource("3_wr2hd")
+region = Rect2(224, 208, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7uayc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_847oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slgg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve2w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj2jf")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td7qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jqh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5kw0")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f22dv"]
+size = Vector2(51, 20)
+
+[node name="FireballProjectile" type="CharacterBody2D"]
+position = Vector2(628, 319)
+script = ExtResource("1_85je2")
+
+[node name="FireballProjectile" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_7uayc")
+animation = &"fireball"
+frame_progress = 0.571175
+
+[node name="HitboxArea" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_f22dv")

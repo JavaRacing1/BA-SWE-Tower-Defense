@@ -1,8 +1,83 @@
 {
     "towers": [
         {
-            "name": "",
-            "cost": 0,
+            "name": "knight",
+            "cost": 300,
+            "upgrade_names": [
+                "",
+                "",
+                ""
+            ],
+            "upgrade_costs": [
+                0,
+                0,
+                0
+            ],
+            "ranged": false
+        },
+        {
+            "name": "spearman",
+            "cost": 1000,
+            "upgrade_names": [
+                "",
+                "",
+                ""
+            ],
+            "upgrade_costs": [
+                0,
+                0,
+                0
+            ],
+            "ranged": false
+        },
+        {
+            "name": "archer",
+            "cost": 500,
+            "upgrade_names": [
+                "",
+                "",
+                ""
+            ],
+            "upgrade_costs": [
+                0,
+                0,
+                0
+            ],
+            "ranged": true
+        },
+        {
+            "name": "goldmine",
+            "cost": 250,
+            "upgrade_names": [
+                "",
+                "",
+                ""
+            ],
+            "upgrade_costs": [
+                0,
+                0,
+                0
+            ],
+            "ranged": false
+        },
+        {
+            "name": "wall",
+            "cost": 250,
+            "upgrade_names": [
+                "",
+                "",
+                ""
+            ],
+            "upgrade_costs": [
+                0,
+                0,
+                0
+            ],
+            "ranged": false
+        },
+        {
+            "name": "fire_trap",
+            "cost": 50,
             "upgrade_names": [
                 "",
                 "",

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dewssylixf6uf"]
+[gd_scene load_steps=2 format=3 uid="uid://3yhndatylnyk"]
 
 [ext_resource type="Script" path="res://script/map/MapLane.cs" id="1_24ey8"]
 
-[node name="Node2D" type="Node2D"]
+[node name="MapLane" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_24ey8")

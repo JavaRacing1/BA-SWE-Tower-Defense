@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://uto35gesfmry"]
+
+[ext_resource type="Script" path="res://script/tower/Goldmine.cs" id="1_gjhm7"]
+[ext_resource type="Texture2D" uid="uid://d2lclenek0q3x" path="res://assets/texture/tower/animation/goldmine/Idle1.png" id="2_qyy0b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ehx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qyy0b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iukd"]
+size = Vector2(100, 86)
+
+[node name="GoldmineDefender" type="Node2D"]
+position = Vector2(0, 15)
+script = ExtResource("1_gjhm7")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 24)
+sprite_frames = SubResource("SpriteFrames_8ehx1")
+animation = &"idle"
+centered = false
+
+[node name="ActionTimer" type="Timer" parent="."]
+
+[node name="AnimationTimer" type="Timer" parent="."]
+
+[node name="HitboxArea" type="Area2D" parent="."]
+position = Vector2(92, 54)
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(-42, 11)
+shape = SubResource("RectangleShape2D_6iukd")

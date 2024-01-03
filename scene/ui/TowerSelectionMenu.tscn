@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://02owil8hqq3b"]
+
+[ext_resource type="Script" path="res://script/ui/TowerSelectionMenu.cs" id="1_4u00d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0jjxl"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="TowerSelectionMenu" type="Node"]
+script = ExtResource("1_4u00d")
+
+[node name="MainHeadline" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.058
+offset_bottom = -18.76
+text = "LEVEL 1 - TURMAUSWAHL"
+label_settings = SubResource("LabelSettings_0jjxl")
+horizontal_alignment = 1
+
+[node name="ContainerHeadline" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.058
+offset_left = 939.0
+offset_top = 99.0
+offset_right = -7.0
+offset_bottom = 105.24
+text = "Ausgewählte Türme"
+label_settings = SubResource("LabelSettings_0jjxl")
+horizontal_alignment = 1
+
+[node name="DisplayAvailableNumber" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.058
+offset_left = 835.0
+offset_top = 578.0
+offset_right = -111.0
+offset_bottom = 584.24
+label_settings = SubResource("LabelSettings_0jjxl")
+horizontal_alignment = 1
+
+[node name="AvailableTowersContainer" type="GridContainer" parent="."]
+offset_left = 3.0
+offset_top = 80.0
+offset_right = 899.0
+offset_bottom = 538.0
+columns = 4
+
+[node name="SelectedTowersContainer" type="GridContainer" parent="."]
+offset_left = 954.0
+offset_top = 146.0
+offset_right = 1257.0
+offset_bottom = 539.0
+
+[node name="GoBackButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.421
+anchor_right = 0.201
+anchor_bottom = 0.511
+offset_left = 126.08
+offset_top = 282.88
+offset_right = 130.72
+offset_bottom = 288.08
+mouse_default_cursor_shape = 2
+text = "ZURÜCK"
+metadata/_edit_group_ = true
+
+[node name="StartLevelButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.421
+anchor_right = 0.201
+anchor_bottom = 0.511
+offset_left = 464.08
+offset_top = 282.88
+offset_right = 468.72
+offset_bottom = 288.08
+mouse_default_cursor_shape = 2
+text = "LEVEL STARTEN"
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="GoBackButton" to="." method="OnGoBackButtonPressed"]
+[connection signal="pressed" from="StartLevelButton" to="." method="OnStartLevelButtonPressed"]

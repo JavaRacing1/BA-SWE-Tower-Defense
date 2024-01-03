@@ -27,12 +27,12 @@ public partial class OptionMenu : Window
 
 	private void OnVolumeScrollbarValueChanged(double value)
 	{
-		_currentVolume = (int) value;
+		_currentVolume = (int)value;
 		_currentVolumeLabel.Text = Convert.ToString(_currentVolume);
 
 		if (!_audioPlayer.Playing && _volumeTimer.TimeLeft == 0)
 		{
-			_audioPlayer.VolumeDb = Mathf.LinearToDb((float) value / 100);
+			_audioPlayer.VolumeDb = Mathf.LinearToDb((float)value / 100);
 			_audioPlayer.Playing = true;
 
 			_volumeTimer.Start(_testSoundLength * 2);

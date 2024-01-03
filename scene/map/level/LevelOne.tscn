@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpxgq32kry88s"]
+
+[ext_resource type="Script" path="res://script/map/level/LevelOne.cs" id="1_psca5"]
+[ext_resource type="PackedScene" uid="uid://cph6w2yafda7f" path="res://scene/map/LevelControlBar.tscn" id="2_i75gx"]
+
+[node name="LevelOne" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_psca5")
+
+[node name="LevelControlBar" parent="." instance=ExtResource("2_i75gx")]
+process_mode = 1
+z_index = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[connection signal="PauseButtonPressed" from="LevelControlBar" to="." method="OnPauseLevelButtonPressed"]
+[connection signal="StartButtonPressed" from="LevelControlBar" to="." method="OnStartLevelButtonPressed"]

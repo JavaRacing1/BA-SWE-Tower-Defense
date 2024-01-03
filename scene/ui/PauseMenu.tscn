@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0ajxkapqblf2"]
+
+[ext_resource type="FontFile" uid="uid://vrg0he4meveg" path="res://assets/font/HyliaMidevilFont.otf" id="1_blovi"]
+[ext_resource type="Script" path="res://script/ui/PauseMenu.cs" id="1_iu7b5"]
+[ext_resource type="Texture2D" uid="uid://b7100kb6fq6tx" path="res://assets/sprites/Tower/Tower 04.png" id="3_yasba"]
+
+[sub_resource type="Theme" id="Theme_7en1j"]
+default_font = ExtResource("1_blovi")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_dy7o5"]
+default_font = ExtResource("1_blovi")
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_rqjah"]
+default_font = ExtResource("1_blovi")
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_7qasc"]
+default_font = ExtResource("1_blovi")
+default_font_size = 30
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+editor_description = "Das ist die RootNode das Pausemenüs, die nur läuft, wenn das Spiel pausiert ist. Wenn eine Node pausiert ist stoppen alle Animationen und Node_process Funktionen
+"
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iu7b5")
+
+[node name="Background" type="Panel" parent="."]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_left = 423.0
+offset_top = 145.0
+offset_right = 857.0
+offset_bottom = 575.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuFunktionContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+
+[node name="Headline" type="Label" parent="Background/MarginContainer/PauseMenuFunktionContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_7en1j")
+text = "=PAUSE="
+
+[node name="OptionButton" type="Button" parent="Background/MarginContainer/PauseMenuFunktionContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dy7o5")
+text = "Settings"
+
+[node name="CloseButton" type="Button" parent="Background/MarginContainer/PauseMenuFunktionContainer"]
+layout_mode = 2
+theme = SubResource("Theme_rqjah")
+text = "Resume"
+
+[node name="ExitLevelButton" type="Button" parent="Background/MarginContainer/PauseMenuFunktionContainer"]
+layout_mode = 2
+theme = SubResource("Theme_7qasc")
+text = "Exit
+"
+
+[node name="Tower" type="Sprite2D" parent="Background"]
+position = Vector2(219, 315)
+texture = ExtResource("3_yasba")
+hframes = 3
+
+[connection signal="pressed" from="Background/MarginContainer/PauseMenuFunktionContainer/OptionButton" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="Background/MarginContainer/PauseMenuFunktionContainer/CloseButton" to="." method="OnCloseButtonPressed"]
+[connection signal="pressed" from="Background/MarginContainer/PauseMenuFunktionContainer/ExitLevelButton" to="." method="OnExitButtonPressed"]

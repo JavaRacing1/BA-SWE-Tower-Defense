@@ -1,0 +1,397 @@
+[gd_scene load_steps=25 format=3 uid="uid://6chkmcjsws5f"]
+
+[ext_resource type="Script" path="res://script/ui/DefeatScreen.cs" id="1_s3abl"]
+[ext_resource type="Texture2D" uid="uid://bslopsooqcvvq" path="res://assets/sprites/GoodGuys/Knight/KnightIdle.png" id="2_kpqsk"]
+[ext_resource type="Texture2D" uid="uid://bm358q1cxnq80" path="res://assets/sprites/GoodGuys/Archer/ArcherDeath.png" id="2_sd28o"]
+[ext_resource type="AnimationLibrary" uid="uid://3nt84gbothej" path="res://Properties/Animations/AnimationsDefeatScreenKnight.res" id="3_y5dty"]
+[ext_resource type="AnimationLibrary" uid="uid://b1o53tuuyatl8" path="res://Properties/Animations/AnimationDefeatScreenArcher.res" id="4_scsjx"]
+[ext_resource type="FontFile" uid="uid://vrg0he4meveg" path="res://assets/font/HyliaMidevilFont.otf" id="5_gehgc"]
+[ext_resource type="Texture2D" uid="uid://boomb8pebxv8m" path="res://assets/button/Stonebutton1.png" id="6_4lyb5"]
+[ext_resource type="Texture2D" uid="uid://ceh7jn57xacd1" path="res://assets/button/StonebuttonPressed.png" id="7_afegk"]
+[ext_resource type="Texture2D" uid="uid://com1sf40hpvl8" path="res://assets/sprites/BadGuys/EvilWizard/Death.png" id="8_fm8sm"]
+[ext_resource type="AnimationLibrary" uid="uid://by2qb7yrh1t0h" path="res://Properties/Animations/AnimationDefeatScreenWizard.res" id="9_5uu5y"]
+[ext_resource type="Texture2D" uid="uid://pdqpr1hpnmm4" path="res://assets/sprites/BadGuys/Skeleton/Skeleton Idle.png" id="10_68sdn"]
+[ext_resource type="AnimationLibrary" uid="uid://c7x6owdtbsu46" path="res://Properties/Animations/AnimationDefeatScreenSkeleton.res" id="11_g6nkk"]
+
+[sub_resource type="Animation" id="Animation_vguxk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_sd28o")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2c44t"]
+_data = {
+"RESET": SubResource("Animation_vguxk")
+}
+
+[sub_resource type="Theme" id="Theme_0e8m8"]
+default_font = ExtResource("5_gehgc")
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_o8j0w"]
+default_font = ExtResource("5_gehgc")
+default_font_size = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huhop"]
+texture = ExtResource("6_4lyb5")
+expand_margin_left = 24.0
+expand_margin_top = 18.0
+expand_margin_right = 24.0
+expand_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5s3v"]
+texture = ExtResource("7_afegk")
+
+[sub_resource type="Animation" id="Animation_rqi5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_fm8sm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0d3e8"]
+_data = {
+"RESET": SubResource("Animation_rqi5m")
+}
+
+[sub_resource type="Animation" id="Animation_3gurp"]
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_68sdn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rdm3"]
+_data = {
+"RESET": SubResource("Animation_3gurp")
+}
+
+[sub_resource type="Animation" id="Animation_l8eee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_68sdn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1dxw"]
+_data = {
+"RESET": SubResource("Animation_l8eee")
+}
+
+[node name="DefeatScreen" type="Node"]
+process_mode = 3
+script = ExtResource("1_s3abl")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(750, 450)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = -217.0
+offset_right = 347.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FallenKnight" type="Sprite2D" parent="Panel"]
+z_index = 1
+position = Vector2(190, 271)
+scale = Vector2(4, 4)
+texture = ExtResource("2_kpqsk")
+hframes = 15
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/FallenKnight"]
+libraries = {
+"AnimationsDefeatScreenKnight": ExtResource("3_y5dty")
+}
+
+[node name="TimerDeathKnight" type="Timer" parent="Panel/FallenKnight"]
+one_shot = true
+
+[node name="FallenArcher" type="Sprite2D" parent="Panel"]
+visibility_layer = 2
+position = Vector2(128, 207)
+scale = Vector2(4, 4)
+texture = ExtResource("2_sd28o")
+hframes = 10
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/FallenArcher"]
+libraries = {
+"": SubResource("AnimationLibrary_2c44t"),
+"AnimationDefeatScreenArcher": ExtResource("4_scsjx")
+}
+
+[node name="TimerDeathArcher" type="Timer" parent="Panel/FallenArcher"]
+one_shot = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -325.0
+offset_top = 24.0
+offset_right = 325.0
+offset_bottom = 97.0
+grow_horizontal = 2
+theme = SubResource("Theme_0e8m8")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Defeat
+"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 135.0
+offset_right = 100.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_o8j0w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_huhop")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y5s3v")
+text = "Back to Menu"
+
+[node name="VictoriousWizard" type="Sprite2D" parent="Panel"]
+visibility_layer = 4
+position = Vector2(652, 171)
+scale = Vector2(3, 3)
+texture = ExtResource("8_fm8sm")
+flip_h = true
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/VictoriousWizard"]
+libraries = {
+"": SubResource("AnimationLibrary_0d3e8"),
+"AnimationDefeatScreenWizard": ExtResource("9_5uu5y")
+}
+
+[node name="VictoriousSkeleton1" type="Sprite2D" parent="Panel"]
+position = Vector2(504, 205)
+scale = Vector2(4, 4)
+texture = ExtResource("10_68sdn")
+offset = Vector2(-5, -8)
+flip_h = true
+hframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/VictoriousSkeleton1"]
+libraries = {
+"": SubResource("AnimationLibrary_8rdm3"),
+"AnimationDefeatScreenSkeleton": ExtResource("11_g6nkk")
+}
+
+[node name="TimerAttackSkeletonOne" type="Timer" parent="Panel/VictoriousSkeleton1"]
+one_shot = true
+
+[node name="VictoriousSkeleton2" type="Sprite2D" parent="Panel"]
+visibility_layer = 2
+position = Vector2(550, 285)
+scale = Vector2(4, 4)
+texture = ExtResource("10_68sdn")
+offset = Vector2(-12, -8)
+flip_h = true
+hframes = 11
+frame = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/VictoriousSkeleton2"]
+libraries = {
+"": SubResource("AnimationLibrary_y1dxw"),
+"AnimationDefeatScreenSkeleton": ExtResource("11_g6nkk")
+}
+
+[node name="TimerAttackSkeletonTwo" type="Timer" parent="Panel/VictoriousSkeleton2"]
+one_shot = true
+
+[connection signal="pressed" from="Panel/Button" to="." method="OnMenuButtonPressed"]
