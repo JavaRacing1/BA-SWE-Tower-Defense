@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://du5kak4q6exvs"]
+
+[ext_resource type="PackedScene" uid="uid://chgwinat1fstb" path="res://scene/map/TileMap1.tscn" id="1_ackrr"]
+[ext_resource type="Texture2D" uid="uid://lmmp174c1rjl" path="res://assets/texture/TileSetsMap1/tileset.png" id="2_4cl2n"]
+
+[sub_resource type="Curve2D" id="Curve2D_5onar"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1447, 99, 0, 0, 0, 0, 1341, 94, 0, 0, 0, 0, 1219, 92, 0, 0, 0, 0, 1081, 97, 0, 0, 0, 0, 944, 94, 0, 0, 0, 0, 822, 94, 0, 0, 0, 0, 664, 96, 0, 0, 0, 0, 507, 94, 0, 0, 0, 0, 366, 94, 0, 0, 0, 0, 221, 91, 0, 0, 0, 0, 73, 94)
+}
+point_count = 11
+
+[sub_resource type="Curve2D" id="Curve2D_ratu3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1442, 190, 0, 0, 0, 0, 1353, 185, 0, 0, 0, 0, 1210, 188, 0, 0, 0, 0, 1066, 185, 0, 0, 0, 0, 950, 181, 0, 0, 0, 0, 810, 183, 0, 0, 0, 0, 667, 185, 0, 0, 0, 0, 511, 181, 0, 0, 0, 0, 356, 183, 0, 0, 0, 0, 226, 185, 0, 0, 0, 0, 75, 187)
+}
+point_count = 11
+
+[node name="Map1" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_ackrr")]
+
+[node name="Linie1" type="Path2D" parent="TileMap"]
+curve = SubResource("Curve2D_5onar")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TileMap/Linie1"]
+position = Vector2(1447, 99)
+rotation = -3.09446
+cubic_interp = false
+
+[node name="Linie2" type="Path2D" parent="TileMap"]
+curve = SubResource("Curve2D_ratu3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TileMap/Linie2"]
+position = Vector2(1442, 190)
+rotation = -3.08547
+
+[node name="Tileset" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(845, 1080)
+scale = Vector2(5.77734, 5.82292)
+texture = ExtResource("2_4cl2n")
